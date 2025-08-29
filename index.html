@@ -1,23 +1,225 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Apps Script Web App in Iframe</title>
+  <title>Tech Typing Hub</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-      margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
     }
-    iframe {
-      width: 100%;
-      height: 100vh; /* পুরো স্ক্রিন ভরে দেখাবে */
-      border: none;
+    /* Navbar */
+    .navbar {
+      background: linear-gradient(90deg, #0066ff, #00c6ff);
+    }
+    .navbar-brand, .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      color: #ffd700 !important;
+    }
+    /* Hero */
+    .hero {
+      background: linear-gradient(120deg, #00c6ff, #0066ff);
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+    /* Services */
+    .service-card {
+      transition: all 0.3s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    /* Testimonials */
+    .testimonial {
+      background: #f8f9fa;
+      padding: 50px 20px;
+      border-radius: 10px;
+      margin: 15px;
+    }
+    footer {
+      background: #0066ff;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
     }
   </style>
 </head>
 <body>
-  <!-- এখানে আপনার Apps Script Web App এর URL বসান -->
-  <iframe src="https://script.google.com/macros/s/AKfycbwKwfb4AoGGmw7mwzdw-xJqX9HaKB0Ix8fmGtKt2KEthp09Tqa-Z09oMxhBgYkCLxwA/exec"></iframe>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Tech Typing Hub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon bg-light rounded"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <h1>Welcome to Tech Typing Hub</h1>
+      <p>আমরা আপনাকে দিচ্ছি টাইপিং, ওয়েব ডেভেলপমেন্ট এবং ডিজিটাল মার্কেটিং সার্ভিস</p>
+      <a href="#services" class="btn btn-warning btn-lg mt-3">Explore Services</a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-5" id="services">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Our Services</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card service-card text-center p-3">
+            <div class="card-body">
+              <h5 class="card-title">কম্পিউটার কম্পোজ (টাইপিং)</h5>
+              <p class="card-text">পেশাদার টাইপিং সার্ভিস, রিপোর্ট, ডকুমেন্ট প্রস্তুত দ্রুততম সময়ে।</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card service-card text-center p-3">
+            <div class="card-body">
+              <h5 class="card-title">ওয়েব ডেভেলপমেন্ট</h5>
+              <p class="card-text">আধুনিক ও আকর্ষণীয় ওয়েবসাইট বানানোর জন্য আমাদের অভিজ্ঞ টিম।</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card service-card text-center p-3">
+            <div class="card-body">
+              <h5 class="card-title">ডিজিটাল মার্কেটিং</h5>
+              <p class="card-text">আপনার ব্যবসা অনলাইনে প্রচার করতে আমাদের ডিজিটাল মার্কেটিং সেবা।</p>
+              <a href="#contact" class="btn btn-primary">Order Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="py-5 bg-light" id="projects">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Our Projects</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project">
+            <div class="card-body">
+              <h5 class="card-title">Project One</h5>
+              <p class="card-text">ওয়েবসাইট ডিজাইন ও ডেভেলপমেন্ট প্রজেক্ট।</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project">
+            <div class="card-body">
+              <h5 class="card-title">Project Two</h5>
+              <p class="card-text">ডিজিটাল মার্কেটিং ক্যাম্পেইন।</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project">
+            <div class="card-body">
+              <h5 class="card-title">Project Three</h5>
+              <p class="card-text">টাইপিং এবং ডকুমেন্ট সার্ভিস।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-5" id="testimonials">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">What Clients Say</h2>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="testimonial">
+            <p>"Tech Typing Hub এর টাইপিং সার্ভিস অসাধারণ। খুব দ্রুত এবং নিখুঁত কাজ দিয়েছে।"</p>
+            <h6>- Rahim, Dhaka</h6>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <p>"ওদের ওয়েব ডেভেলপমেন্ট কাজ আমার ব্যবসাকে এক ধাপ এগিয়ে দিয়েছে। Highly recommended!"</p>
+            <h6>- Karim, Chittagong</h6>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="testimonial">
+            <p>"আমার ব্যবসার জন্য ডিজিটাল মার্কেটিং করে অনেক গ্রাহক পেয়েছি। ধন্যবাদ Tech Typing Hub।"</p>
+            <h6>- Sultana, Rajshahi</h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="py-5 bg-light" id="contact">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Contact Us</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form>
+            <div class="mb-3">
+              <label class="form-label">Your Name</label>
+              <input type="text" class="form-control" placeholder="Enter your name">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Your Email</label>
+              <input type="email" class="form-control" placeholder="Enter your email">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Message</label>
+              <textarea class="form-control" rows="4" placeholder="Write your message"></textarea>
+            </div>
+            <button class="btn btn-primary w-100">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p class="mb-0">&copy; 2025 Tech Typing Hub | All Rights Reserved</p>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
