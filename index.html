@@ -1,123 +1,193 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tech Typing Hub</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tech Typing Hub – শিখুন আজ, বদলে দিন আপনার আগামীকাল</title>
+  <meta name="description" content="Tech Typing Hub: কম্পিউটার ট্রেনিং, একাদশ-দ্বাদশ শ্রেণীর ICT, টাইপিং/ডকুমেন্ট কাজ, Excel & Data Entry, PowerPoint, এবং Website Development সেবা।" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
+    :root{
+      --tth-primary:#0ea5e9; /* sky-500 */
+      --tth-dark:#0f172a;    /* slate-900 */
+      --tth-muted:#64748b;   /* slate-500 */
+      --tth-accent:#22c55e;  /* green-500 */
+      --tth-soft:#f1f5f9;    /* slate-100 */
     }
-    /* Navbar */
-    .navbar {
-      background: linear-gradient(90deg, #0066ff, #00c6ff);
+    html{ scroll-behavior:smooth; }
+    body{ font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:#0f172a; }
+    .navbar-brand b{ color:var(--tth-primary); }
+    .btn-primary{ background:var(--tth-primary); border-color:var(--tth-primary); }
+    .btn-primary:hover{ filter:brightness(0.95); transform:translateY(-1px); }
+    .btn-outline-light:hover{ color:#0f172a; background:#fff; }
+    .shadow-soft{ box-shadow: 0 10px 30px rgba(2, 6, 23, .08); }
+    .rounded-2xl{ border-radius:1.25rem; }
+
+    /* Container Padding */
+    section {
+    scroll-margin-top: 40px; /* Navbar height অনুযায়ী */
     }
-    .navbar-brand, .nav-link {
-      color: #fff !important;
-      font-weight: 500;
-    }
-    .nav-link:hover {
-      color: #ffd700 !important;
-    }
+    
     /* Hero */
-    .hero {
-      background: linear-gradient(120deg, #00c6ff, #0066ff);
-      color: white;
-      padding: 100px 0;
-      text-align: center;
+    .hero{
+      background: radial-gradient(1200px 400px at 50% -20%, rgba(14,165,233,.15), transparent 60%),
+                  linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
     }
-    .hero h1 {
-      font-size: 3rem;
-      font-weight: bold;
-    }
-    .hero p {
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-    }
-    /* Services */
-    .service-card {
-      transition: all 0.3s ease;
-    }
-    .service-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-    /* Testimonials */
-    .testimonial {
-      background: #f8f9fa;
-      padding: 50px 20px;
-      border-radius: 10px;
-      margin: 15px;
-    }
-    footer {
-      background: #0066ff;
-      color: white;
-      padding: 20px 0;
-      text-align: center;
-    }
+
+    /* Notice Ticker */
+    .notice-wrap{ background:#08172f; color:#e2e8f0; position:relative; overflow:hidden; }
+    .notice-track{ display:flex; gap:3rem; white-space:nowrap; align-items:center; width:max-content; animation: marquee 18s linear infinite; }
+    .notice-item{ display:flex; align-items:center; gap:.5rem; font-weight:600; }
+    .notice-item i{ color:var(--tth-accent); }
+    @keyframes marquee{ from{ transform:translateX(0);} to{ transform:translateX(-50%);} }
+
+    /* Reveal on scroll */
+    .reveal{ opacity:0; transform: translateY(18px); transition: all .7s ease; }
+    .reveal.show{ opacity:1; transform: translateY(0); }
+
+    /* Card hover */
+    .card.hover-lift{ transition: transform .25s ease, box-shadow .25s ease; }
+    .card.hover-lift:hover{ transform: translateY(-6px); box-shadow:0 20px 40px rgba(2,6,23,.12); }
+
+    /* Pricing */
+    .price{ font-size:2.25rem; font-weight:800; }
+
+    /* Footer */
+    .social a{ color:#cbd5e1; margin-right:.75rem; }
+    .social a:hover{ color:#fff; }
   </style>
 </head>
 <body>
-
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">Tech Typing Hub</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon bg-light rounded"></span>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container py-2">
+      <a class="navbar-brand fw-bold" href="#home">Tech <b>Typing</b> Hub</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
           <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
           <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
           <li class="nav-item"><a class="nav-link" href="#testimonials">Testimonials</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="#pricing">Pricing</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+          <li class="nav-item"><a class="btn btn-primary ms-lg-2" href="#contact"><i class="bi bi-chat-dots me-1"></i> Contact</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
+  <!-- Hero -->
+  <header id="home" class="hero py-5 py-lg-6">
+    <div class="container py-5">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-extrabold mb-3">শিখুন আজ, বদলে দিন আপনার আগামীকাল।</h1>
+          <p class="lead text-secondary">একাদশ-দ্বাদশ শ্রেণীর ICT কোচিং, কম্পিউটার ট্রেনিং ও সার্টিফিকেট, টাইপিং/ডকুমেন্ট কাজ, Excel & Data Entry, PowerPoint, এবং আধুনিক Responsive Website Development.</p>
+          <div class="d-flex gap-2 mt-3">
+            <a href="#services" class="btn btn-primary btn-lg"><i class="bi bi-lightning-charge-fill me-1"></i> See Services</a>
+            <a href="https://wa.me/8801575063645" target="_blank" class="btn btn-outline-secondary btn-lg"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
+          </div>
+          <div class="d-flex align-items-center gap-4 mt-4 text-secondary small">
+            <div><i class="bi bi-patch-check-fill text-success me-1"></i> On-time Delivery</div>
+            <div><i class="bi bi-shield-lock-fill text-primary me-1"></i> Data Privacy</div>
+            <div><i class="bi bi-rocket-takeoff-fill text-warning me-1"></i> Fast Support</div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-3 p-lg-4 bg-white rounded-2xl shadow-soft reveal">
+            <img class="img-fluid rounded-2xl" src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=1400&auto=format&fit=crop" alt="Tech workspace" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Notice Ticker (left-to-right visual movement achieved by track moving left) -->
+  <section class="notice-wrap py-2">
     <div class="container">
-      <h1>Welcome to Tech Typing Hub</h1>
-      <p>আমরা আপনাকে দিচ্ছি টাইপিং, ওয়েব ডেভেলপমেন্ট এবং ডিজিটাল মার্কেটিং সার্ভিস</p>
-      <a href="#services" class="btn btn-warning btn-lg mt-3">Explore Services</a>
+      <div class="notice-track" aria-label="Latest notices">
+        <div class="notice-item"><i class="bi bi-megaphone-fill"></i> নতুন ব্যাচ ভর্তি চলছে – ICT & Computer Training</div>
+        <div class="notice-item"><i class="bi bi-megaphone-fill"></i> টাইপিং/ডকুমেন্ট কাজ – দ্রুত ডেলিভারি</div>
+        <div class="notice-item"><i class="bi bi-megaphone-fill"></i> Excel Sheet Design & Data Entry – প্রজেক্ট নিন মুহূর্তে</div>
+        <div class="notice-item"><i class="bi bi-megaphone-fill"></i> Responsive Website – Bootstrap + Animation</div>
+        <div class="notice-item"><i class="bi bi-megaphone-fill"></i> PowerPoint Presentation – Modern Template</div>
+        <!-- duplicate for continuous loop -->
+        <div class="notice-item"><i class="bi bi-megaphone-fill"></i> নতুন ব্যাচ ভর্তি চলছে – ICT & Computer Training</div>
+        <div class="notice-item"><i class="bi bi-megaphone-fill"></i> টাইপিং/ডকুমেন্ট কাজ – দ্রুত ডেলিভারি</div>
+        <div class="notice-item"><i class="bi bi-megaphone-fill"></i> Excel Sheet Design & Data Entry – প্রজেক্ট নিন মুহূর্তে</div>
+        <div class="notice-item"><i class="bi bi-megaphone-fill"></i> Responsive Website – Bootstrap + Animation</div>
+        <div class="notice-item"><i class="bi bi-megaphone-fill"></i> PowerPoint Presentation – Modern Template</div>
+      </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section class="py-5" id="services">
+  <section id="services" class="py-5 py-lg-6">
     <div class="container">
-      <h2 class="text-center mb-5 fw-bold">Our Services</h2>
+      <div class="text-center mb-5">
+        <span class="badge bg-soft text-dark border rounded-pill px-3 py-2" style="background:#e0f2fe;border-color:#bae6fd;">What We Do</span>
+        <h2 class="mt-3 fw-bold">Our <span class="text-primary">Services</span></h2>
+        <p class="text-secondary">প্রফেশনাল কোয়ালিটি, সময়মতো ডেলিভারি, এবং বাজেট-ফ্রেন্ডলি সল্যুশন।</p>
+      </div>
       <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card service-card text-center p-3">
-            <div class="card-body">
-              <h5 class="card-title">কম্পিউটার কম্পোজ (টাইপিং)</h5>
-              <p class="card-text">পেশাদার টাইপিং সার্ভিস, রিপোর্ট, ডকুমেন্ট প্রস্তুত দ্রুততম সময়ে।</p>
-              <a href="#contact" class="btn btn-primary">Order Now</a>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card hover-lift h-100 rounded-2xl">
+            <div class="card-body p-4">
+              <div class="d-inline-flex bg-soft rounded-circle p-3 mb-3" style="background:#e8f7ff;"><i class="bi bi-mortarboard fs-4 text-primary"></i></div>
+              <h5 class="card-title fw-semibold">ICT Coaching & Computer Training</h5>
+              <p class="card-text text-secondary">একাদশ-দ্বাদশ শ্রেণীর ICT, Basic to Advanced Computer, Excel, PowerPoint, Data Entry—হাতে-কলমে শেখানো হয়।</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card service-card text-center p-3">
-            <div class="card-body">
-              <h5 class="card-title">ওয়েব ডেভেলপমেন্ট</h5>
-              <p class="card-text">আধুনিক ও আকর্ষণীয় ওয়েবসাইট বানানোর জন্য আমাদের অভিজ্ঞ টিম।</p>
-              <a href="#contact" class="btn btn-primary">Order Now</a>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card hover-lift h-100 rounded-2xl">
+            <div class="card-body p-4">
+              <div class="d-inline-flex bg-soft rounded-circle p-3 mb-3" style="background:#e8f7ff;"><i class="bi bi-keyboard fs-4 text-primary"></i></div>
+              <h5 class="card-title fw-semibold">Typing & Document Work</h5>
+              <p class="card-text text-secondary">বই, গাইড, লেকচারশীট, সাজেশন, প্রশ্নপত্র ও অফিসিয়াল ডকুমেন্ট—দ্রুততম সময়ে নিখুঁত টাইপিং।</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card service-card text-center p-3">
-            <div class="card-body">
-              <h5 class="card-title">ডিজিটাল মার্কেটিং</h5>
-              <p class="card-text">আপনার ব্যবসা অনলাইনে প্রচার করতে আমাদের ডিজিটাল মার্কেটিং সেবা।</p>
-              <a href="#contact" class="btn btn-primary">Order Now</a>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card hover-lift h-100 rounded-2xl">
+            <div class="card-body p-4">
+              <div class="d-inline-flex bg-soft rounded-circle p-3 mb-3" style="background:#e8f7ff;"><i class="bi bi-table fs-4 text-primary"></i></div>
+              <h5 class="card-title fw-semibold">Excel Sheet & Data Entry</h5>
+              <p class="card-text text-secondary">হিসাব-নিকাশ, রিপোর্ট, ড্যাশবোর্ড—কাস্টম টেমপ্লেট ও ডেটা ম্যানেজমেন্ট সার্ভিস।</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card hover-lift h-100 rounded-2xl">
+            <div class="card-body p-4">
+              <div class="d-inline-flex bg-soft rounded-circle p-3 mb-3" style="background:#e8f7ff;"><i class="bi bi-easel2 fs-4 text-primary"></i></div>
+              <h5 class="card-title fw-semibold">PowerPoint Presentation</h5>
+              <p class="card-text text-secondary">আকর্ষণীয় ডিজাইন, স্লাইড মাস্টার, ট্রানজিশন ও অ্যানিমেশন—একাডেমিক/অফিস প্রেজেন্টেশন।</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card hover-lift h-100 rounded-2xl">
+            <div class="card-body p-4">
+              <div class="d-inline-flex bg-soft rounded-circle p-3 mb-3" style="background:#e8f7ff;"><i class="bi bi-globe2 fs-4 text-primary"></i></div>
+              <h5 class="card-title fw-semibold">Website Development</h5>
+              <p class="card-text text-secondary">Bootstrap, Responsive UI, Animation, Domain/Hosting গাইড—সম্পূর্ণ ডেভেলপমেন্ট।</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card hover-lift h-100 rounded-2xl">
+            <div class="card-body p-4">
+              <div class="d-inline-flex bg-soft rounded-circle p-3 mb-3" style="background:#e8f7ff;"><i class="bi bi-headset fs-4 text-primary"></i></div>
+              <h5 class="card-title fw-semibold">Support & Maintenance</h5>
+              <p class="card-text text-secondary">ডকুমেন্ট আপডেট, ওয়েবসাইট মেইনটেন্যান্স, ডেটা ক্লিন-আপ—নিয়মিত সহায়তা।</p>
             </div>
           </div>
         </div>
@@ -126,34 +196,37 @@
   </section>
 
   <!-- Projects -->
-  <section class="py-5 bg-light" id="projects">
+  <section id="projects" class="py-5 bg-light">
     <div class="container">
-      <h2 class="text-center mb-5 fw-bold">Our Projects</h2>
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Recent <span class="text-primary">Projects</span></h2>
+        <p class="text-secondary">টাইপিং, এক্সেল টেমপ্লেট, ওয়েবসাইট—কিছু সিলেক্টেড কাজ।</p>
+      </div>
       <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card hover-lift h-100 rounded-2xl">
+            <img src="https://picsum.photos/seed/typing/600/400" class="card-img-top" alt="Typing Project" />
             <div class="card-body">
-              <h5 class="card-title">Project One</h5>
-              <p class="card-text">ওয়েবসাইট ডিজাইন ও ডেভেলপমেন্ট প্রজেক্ট।</p>
+              <h5 class="card-title">Book & Lecture Typing</h5>
+              <p class="card-text text-secondary">বাংলা-ইংরেজি মিক্সড টাইপিং, প্রুফরিড সহ।</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card hover-lift h-100 rounded-2xl">
+            <img src="https://picsum.photos/seed/excel/600/400" class="card-img-top" alt="Excel Project" />
             <div class="card-body">
-              <h5 class="card-title">Project Two</h5>
-              <p class="card-text">ডিজিটাল মার্কেটিং ক্যাম্পেইন।</p>
+              <h5 class="card-title">Excel Finance Sheet</h5>
+              <p class="card-text text-secondary">ড্যাশবোর্ড, ফর্মুলা, ডেটা ভ্যালিডেশন।</p>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <img src="https://via.placeholder.com/400x250" class="card-img-top" alt="Project">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card hover-lift h-100 rounded-2xl">
+            <img src="https://picsum.photos/seed/website/600/400" class="card-img-top" alt="Website Project" />
             <div class="card-body">
-              <h5 class="card-title">Project Three</h5>
-              <p class="card-text">টাইপিং এবং ডকুমেন্ট সার্ভিস।</p>
+              <h5 class="card-title">Business Website</h5>
+              <p class="card-text text-secondary">Bootstrap + Animation + SEO ভিত্তিক।</p>
             </div>
           </div>
         </div>
@@ -162,26 +235,168 @@
   </section>
 
   <!-- Testimonials -->
-  <section class="py-5" id="testimonials">
+  <section id="testimonials" class="py-5">
     <div class="container">
-      <h2 class="text-center mb-5 fw-bold">What Clients Say</h2>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="testimonial">
-            <p>"Tech Typing Hub এর টাইপিং সার্ভিস অসাধারণ। খুব দ্রুত এবং নিখুঁত কাজ দিয়েছে।"</p>
-            <h6>- Rahim, Dhaka</h6>
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Happy <span class="text-primary">Clients</span></h2>
+        <p class="text-secondary">আমাদের সেবায় ক্লায়েন্টরা যা বলেছেন—</p>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card h-100 rounded-2xl shadow-soft">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://i.pravatar.cc/80?img=12" class="rounded-circle me-3" width="56" height="56" alt="Client" />
+                <div>
+                  <strong>Shahriar R.</strong>
+                  <div class="text-warning small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                </div>
+              </div>
+              <p class="mb-0 text-secondary">“টাইপিং ও প্রেজেন্টেশনের কাজটি খুব দ্রুত ও নিখুঁতভাবে হয়েছে। Highly recommended!”</p>
+            </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="testimonial">
-            <p>"ওদের ওয়েব ডেভেলপমেন্ট কাজ আমার ব্যবসাকে এক ধাপ এগিয়ে দিয়েছে। Highly recommended!"</p>
-            <h6>- Karim, Chittagong</h6>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card h-100 rounded-2xl shadow-soft">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://i.pravatar.cc/80?img=22" class="rounded-circle me-3" width="56" height="56" alt="Client" />
+                <div>
+                  <strong>Monira A.</strong>
+                  <div class="text-warning small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></div>
+                </div>
+              </div>
+              <p class="mb-0 text-secondary">“Excel শীট ও ডাটা এন্ট্রির জন্য নিখুঁত সাপোর্ট পেয়েছি। Budget-friendly!”</p>
+            </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="testimonial">
-            <p>"আমার ব্যবসার জন্য ডিজিটাল মার্কেটিং করে অনেক গ্রাহক পেয়েছি। ধন্যবাদ Tech Typing Hub।"</p>
-            <h6>- Sultana, Rajshahi</h6>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card h-100 rounded-2xl shadow-soft">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <img src="https://i.pravatar.cc/80?img=36" class="rounded-circle me-3" width="56" height="56" alt="Client" />
+                <div>
+                  <strong>Masud K.</strong>
+                  <div class="text-warning small"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                </div>
+              </div>
+              <p class="mb-0 text-secondary">“ওয়েবসাইট রেসপনসিভ ও স্পিডি। কমিউনিকেশনও খুব ভালো ছিল।”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">Simple <span class="text-primary">Pricing</span></h2>
+        <p class="text-secondary">ফ্লেক্সিবল প্যাকেজ—আপনার প্রয়োজন অনুযায়ী কাস্টমাইজ করা যাবে।</p>
+      </div>
+      <div class="row g-4 align-items-stretch">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card h-100 rounded-2xl">
+            <div class="card-body p-4">
+              <h5 class="fw-bold">Typing & Docs</h5>
+              <p class="text-secondary">বই/গাইড/ডকুমেন্ট টাইপিং</p>
+              <div class="price">৳ 40 / পৃষ্ঠা</div>
+              <ul class="list-unstyled mt-3 text-secondary">
+                <li><i class="bi bi-check2 text-success me-1"></i> বাংলা/ইংরেজি/গণিত টাইপিং</li>
+                <li><i class="bi bi-check2 text-success me-1"></i> প্রুফরিড বেসিক</li>
+                <li><i class="bi bi-check2 text-success me-1"></i> দ্রুত ডেলিভারি</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline-primary w-100">Order Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card h-100 border-primary rounded-2xl position-relative">
+            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">Popular</span>
+            <div class="card-body p-4">
+              <h5 class="fw-bold">Excel & Data Entry</h5>
+              <p class="text-secondary">শীট ডিজাইন + ডাটা ম্যানেজমেন্ট</p>
+              <div class="price">৳ 1,990 / প্রজেক্ট*</div>
+              <ul class="list-unstyled mt-3 text-secondary">
+                <li><i class="bi bi-check2 text-success me-1"></i> টেমপ্লেট + ফর্মুলা</li>
+                <li><i class="bi bi-check2 text-success me-1"></i> রিপোর্ট/Dashboard</li>
+                <li><i class="bi bi-check2 text-success me-1"></i> গাইড & সাপোর্ট</li>
+              </ul>
+              <a href="#contact" class="btn btn-primary w-100">Get Started</a>
+              <div class="small text-secondary mt-2">*Complex হলে কাস্টম কোট</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card h-100 rounded-2xl">
+            <div class="card-body p-4">
+              <h5 class="fw-bold">Website Development</h5>
+              <p class="text-secondary">Bootstrap + Responsive</p>
+              <div class="price">৳ 9,900 থেকে</div>
+              <ul class="list-unstyled mt-3 text-secondary">
+                <li><i class="bi bi-check2 text-success me-1"></i> 1–5 পেজ ল্যান্ডিং</li>
+                <li><i class="bi bi-check2 text-success me-1"></i> অ্যানিমেশন/SEO বেসিক</li>
+                <li><i class="bi bi-check2 text-success me-1"></i> ডোমেইন/হোস্টিং গাইড</li>
+              </ul>
+              <a href="#contact" class="btn btn-outline-primary w-100">Free Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="fw-bold">FAQ – সাধারণ জিজ্ঞাসা</h2>
+        <p class="text-secondary">আপনার প্রশ্নের দ্রুত উত্তর—</p>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
+          <div class="accordion" id="faqAccordion">
+            <div class="accordion-item reveal">
+              <h2 class="accordion-header" id="q1">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#a1" aria-expanded="true" aria-controls="a1">
+                  ডেলিভারি সময় কত?
+                </button>
+              </h2>
+              <div id="a1" class="accordion-collapse collapse show" aria-labelledby="q1" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary">প্রজেক্ট ভেদে ভিন্ন—ছোট কাজ ২৪–৪৮ ঘণ্টা, বড় কাজ কাস্টম টাইমলাইন।</div>
+              </div>
+            </div>
+            <div class="accordion-item reveal">
+              <h2 class="accordion-header" id="q2">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a2" aria-expanded="false" aria-controls="a2">
+                  কীভাবে পেমেন্ট করবেন?
+                </button>
+              </h2>
+              <div id="a2" class="accordion-collapse collapse" aria-labelledby="q2" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary">বিকাশ/নগদ—অ্যাডভান্স + ডেলিভারি মাইলস্টোন অনুযায়ী।</div>
+              </div>
+            </div>
+            <div class="accordion-item reveal">
+              <h2 class="accordion-header" id="q3">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a3" aria-expanded="false" aria-controls="a3">
+                  ওয়েবসাইট হোস্টিং/ডোমেইন কে করবে?
+                </button>
+              </h2>
+              <div id="a3" class="accordion-collapse collapse" aria-labelledby="q3" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary">আমরা গাইড করবো/ম্যানেজ করতে পারি—ডোমেইন, হোস্টিং, SSL সেটআপ।</div>
+              </div>
+            </div>
+            <div class="accordion-item reveal">
+              <h2 class="accordion-header" id="q4">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#a4" aria-expanded="false" aria-controls="a4">
+                  সোর্স ফাইল ও রিভিশন কেমন পাবো?
+                </button>
+              </h2>
+              <div id="a4" class="accordion-collapse collapse" aria-labelledby="q4" data-bs-parent="#faqAccordion">
+                <div class="accordion-body text-secondary">সোর্স ফাইল শেয়ার করা হবে এবং প্যাকেজভেদে ১–৩টি রিভিশন অন্তর্ভুক্ত।</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -189,37 +404,134 @@
   </section>
 
   <!-- Contact -->
-  <section class="py-5 bg-light" id="contact">
+  <section id="contact" class="py-5 bg-light">
     <div class="container">
-      <h2 class="text-center mb-5 fw-bold">Contact Us</h2>
-      <div class="row justify-content-center">
-        <div class="col-md-6">
-          <form>
-            <div class="mb-3">
-              <label class="form-label">Your Name</label>
-              <input type="text" class="form-control" placeholder="Enter your name">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h2 class="fw-bold">যোগাযোগ করুন</h2>
+          <p class="text-secondary">ইনবক্স/ফোন/WhatsApp—যেভাবে সুবিধা, সেভাবেই। আপনার প্রয়োজন লিখে পাঠান, আমরা রিপ্লাই দেবো দ্রুত।</p>
+          <div class="d-flex flex-column gap-2 text-secondary">
+            <div><i class="bi bi-telephone me-2"></i><a href="tel:+8801759357182" class="link-secondary text-decoration-none">+8801759357182</a></div>
+            <div><i class="bi bi-envelope me-2"></i><a href="mailto:hello@techtypinghub.com" class="link-secondary text-decoration-none">hello@techtypinghub.com</a></div>
+            <div><i class="bi bi-geo-alt me-2"></i> সাবালিয়া, টাঙ্গাইল</div>
+          </div>
+          <div class="mt-3 d-flex gap-2">
+            <a class="btn btn-primary" href="https://www.facebook.com/" target="_blank"><i class="bi bi-facebook me-1"></i> Facebook Page</a>
+            <a class="btn btn-outline-secondary" href="https://wa.me/8801575063645" target="_blank"><i class="bi bi-whatsapp me-1"></i> WhatsApp</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card shadow-soft rounded-2xl">
+            <div class="card-body p-4">
+              <form id="contactForm" class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label">নাম</label>
+                  <input type="text" class="form-control" name="name" required />
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label">ফোন</label>
+                  <input type="tel" class="form-control" name="phone" required />
+                </div>
+                <div class="col-12">
+                  <label class="form-label">ইমেইল</label>
+                  <input type="email" class="form-control" name="email" />
+                </div>
+                <div class="col-12">
+                  <label class="form-label">সার্ভিস</label>
+                  <select class="form-select" name="service" required>
+                    <option value="">সিলেক্ট করুন</option>
+                    <option>Typing & Document</option>
+                    <option>Excel & Data Entry</option>
+                    <option>PowerPoint</option>
+                    <option>Website Development</option>
+                    <option>ICT Coaching</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label">আপনার বার্তা</label>
+                  <textarea class="form-control" name="message" rows="4" required></textarea>
+                </div>
+                <div class="col-12 d-grid">
+                  <button type="submit" class="btn btn-primary btn-lg">সাবমিট করুন</button>
+                </div>
+                <div id="formAlert" class="col-12 small mt-2"></div>
+              </form>
             </div>
-            <div class="mb-3">
-              <label class="form-label">Your Email</label>
-              <input type="email" class="form-control" placeholder="Enter your email">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Message</label>
-              <textarea class="form-control" rows="4" placeholder="Write your message"></textarea>
-            </div>
-            <button class="btn btn-primary w-100">Send Message</button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <p class="mb-0">&copy; 2025 Tech Typing Hub | All Rights Reserved</p>
+  <footer class="py-5" style="background:#0b1223; color:#cbd5e1;">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <h5 class="text-white">Tech Typing Hub</h5>
+          <p class="mb-3">কম্পিউটার ট্রেনিং, ICT কোচিং, টাইপিং/ডকুমেন্ট, Excel & Data Entry, PowerPoint, Website—এক প্ল্যাটফর্ম।</p>
+          <div class="social">
+            <a href="#" target="_blank" aria-label="Facebook"><i class="bi bi-facebook fs-4"></i></a>
+            <a href="#" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp fs-4"></i></a>
+            <a href="#" target="_blank" aria-label="Email"><i class="bi bi-envelope fs-4"></i></a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <h6 class="text-white">Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a class="link-light text-decoration-none" href="#services">Services</a></li>
+            <li><a class="link-light text-decoration-none" href="#projects">Projects</a></li>
+            <li><a class="link-light text-decoration-none" href="#pricing">Pricing</a></li>
+            <li><a class="link-light text-decoration-none" href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <h6 class="text-white">Newsletter</h6>
+          <form class="d-flex gap-2">
+            <input type="email" class="form-control" placeholder="আপনার ইমেইল" />
+            <button class="btn btn-primary" type="button">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <hr class="border-secondary mt-4" />
+      <div class="d-flex flex-column flex-md-row justify-content-between small">
+        <div>© <span id="year"></span> Tech Typing Hub. All rights reserved.</div>
+        <div>Developer <i class="bi bi-heart-fill text-danger"></i> Tech Typing Hub</div>
+      </div>
+    </div>
   </footer>
 
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // reveal on scroll
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){ entry.target.classList.add('show'); }
+      });
+    },{ threshold:.14 });
+    document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+    // contact form (no backend) – replace with your Apps Script/Webhook
+    const form = document.getElementById('contactForm');
+    const alertBox = document.getElementById('formAlert');
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      try {
+        // TODO: Replace URL below with your Google Apps Script Web App endpoint
+        // const res = await fetch('https://script.google.com/macros/s/APP_SCRIPT_ID/exec', { method:'POST', mode:'no-cors', body: new FormData(form) });
+        // Simulate success
+        alertBox.className = 'alert alert-success';
+        alertBox.textContent = 'ধন্যবাদ! আপনার বার্তা পাওয়া গেছে। আমরা শীঘ্রই যোগাযোগ করবো।';
+        form.reset();
+      } catch (err){
+        alertBox.className = 'alert alert-danger';
+        alertBox.textContent = 'দুঃখিত, পাঠাতে সমস্যা হয়েছে। পরে আবার চেষ্টা করুন।';
+      }
+    });
+  </script>
 </body>
 </html>
